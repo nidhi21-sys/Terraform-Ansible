@@ -1,0 +1,21 @@
+---
+- name: Ansible Demo
+    hosts: localhost
+    become: yes
+    tasks:
+      -  name: Install Apache
+    apt:
+        name: apache2
+        state: present
+        update_cache: yes
+
+     - name: Create User
+        user:
+         name: devopsuser
+         state: present
+
+     - name: Start Apache
+    service:
+         name: apache2
+         state: started
+         enabled: yes
